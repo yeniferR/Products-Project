@@ -1,0 +1,54 @@
+$color-container: white
+$margin-container: 0
+$border: 4px 4px 0 0
+$displai: flex
+$align-items: center
+$pointer: pointer
+
+.products-container
+  margin: $margin-container
+
+p
+  margin: $margin-container
+
+ul li .search
+  display: $displai
+  align-items: $align-items
+  justify-content: space-between
+
+.Products
+  background-color: $color-container
+  border-radius: $border
+  padding: 20px
+  margin-top: 1px
+li
+  list-style: none
+
+.container
+  display: $displai
+  align-items: $align-items
+  flex-direction: column
+
+.product-list
+  display: $displai
+  align-items: flex-start
+
+.list-ul
+  width: 60%
+  padding: 20px
+
+li .state-name
+  font-size: 12px
+
+li .price
+  padding-bottom: 32px
+  font-size: 24px
+  cursor: $pointer
+
+li .title
+  font-size: 18px
+  cursor: $pointer
+
+li .img
+  margin: 16px
+  cursor: $pointer

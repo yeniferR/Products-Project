@@ -1,0 +1,41 @@
+$color-header: #FFE600
+// #FFE600
+$margin-body: 0
+$width-header: 100%
+$height-header: 50px
+
+.header
+  background-color: $color-header
+  width: $width-header
+  height: $height-header
+  display: flex
+  align-items: center
+  justify-content: center
+
+.search-text
+  width: inherit
+  height: inherit
+  display: flex
+  justify-content: center
+  align-items: center
+  .input
+    width: 50%
+    height: 30px
+    margin-left: 20px
+    display: flex
+    align-items: center
+    input
+      width: 100%
+      height: inherit
+      padding-left: 10px
+      border: 1px solid transparent
+      border-radius: 4px 0 0 4px
+      &:focus
+        outline: none
+  .product-search
+    height: 34px
+    button
+      cursor: pointer
+      height: inherit
+      border: 1px solid transparent
+      border-radius: 0px 4px 4px 0px

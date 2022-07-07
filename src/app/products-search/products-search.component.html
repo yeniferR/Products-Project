@@ -1,0 +1,35 @@
+<section class="products-container">
+  <div class="container">
+    <ul class="list-ul">
+      <li>Celulares y Smartphones</li>
+
+      <li class="Products" *ngFor="let products of ProductsList | slice: 0:4">
+        <div class="search">
+          <div class="product-list">
+            <div class="img">
+              <img
+                class="product-list__table-item-image"
+                src="{{ products.thumbnail }}"
+                alt="Country flag"
+                (click)="DetailProducts(products)"
+              />
+            </div>
+
+            <div>
+              <div class="price">
+                $ {{ products.price }}
+                <img src=".././../assets/ic_shipping.png" alt="" />
+              </div>
+              <div class="title">
+                <p>{{ products.title }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="address-state">
+            <p class="state-name">{{ products.address.state_name }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
