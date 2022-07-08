@@ -4,9 +4,9 @@
       <li>Celulares y Smartphones</li>
 
       <li class="Products" *ngFor="let products of ProductsList | slice: 0:4">
-        <div class="search">
+        <div class="search-products">
           <div class="product-list">
-            <div class="img">
+            <div class="product-img">
               <img
                 class="product-list__table-item-image"
                 src="{{ products.thumbnail }}"
@@ -16,17 +16,21 @@
             </div>
 
             <div>
-              <div class="price">
-                $ {{ products.price }}
+              <div class="price-list-prodruct">
+                <p class="products-price" (click)="DetailProducts(products)">
+                  $ {{ products.price }}
+                </p>
                 <img src=".././../assets/ic_shipping.png" alt="" />
               </div>
-              <div class="title">
+              <div class="product-title">
                 <p>{{ products.title }}</p>
               </div>
             </div>
           </div>
           <div class="address-state">
-            <p class="state-name">{{ products.address.state_name }}</p>
+            <p class="state-name" (click)="DetailProducts(products)">
+              {{ products.address.state_name }}
+            </p>
           </div>
         </div>
       </li>

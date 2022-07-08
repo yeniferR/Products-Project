@@ -12,7 +12,6 @@ import { ProductsServiceService } from './service/products-service.service';
 export class ProductsSearchComponent implements OnInit {
   resultProducts :any;
   ProductsList:any;
-  query:string;
   subscription: Subscription;
   code:any;
   filter:any;
@@ -24,14 +23,14 @@ export class ProductsSearchComponent implements OnInit {
     this.subscription = this.routerActivatedRoute.params
     .subscribe(
      (codeParams) =>{
-      console.log(codeParams);
+      // console.log(codeParams);
        this.code =codeParams['query'];
-      console.log(this.code);
-       this.search();
+      // console.log(this.code);
+       this.searchProducts();
      });
   }
 
-   search(){
+  searchProducts(){
     this.ProductsSearchService.getProducts(this.code).subscribe(
       (data) =>(
         this.resultProducts = data),
@@ -41,11 +40,11 @@ export class ProductsSearchComponent implements OnInit {
           this.ProductsList = this.resultProducts.results;
           this.filterList = this.resultProducts.filters;
           console.log( this.filterList);
-          console.log(this.resultProducts);
+          // console.log(this.resultProducts);
           for (let index = 0; index <= 3; index++) {
             const element = this.ProductsList[index];
 
-            console.log( element);
+            // console.log( element);
 
 
             // .forEach(element1 => {
@@ -61,9 +60,15 @@ export class ProductsSearchComponent implements OnInit {
 
   }
 
-  DetailProducts(event:any){
-    console.log(event);
+  DetailProducts(event:any)
+  {
+    if (!!event) {
+      let id  = event.id;
+      let description = event.title
+      // console.log(event);
+      this.router.navigate(['items',id,description]);
 
+    }
   }
 
 }

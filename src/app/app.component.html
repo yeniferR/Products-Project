@@ -6,6 +6,7 @@
         type="text"
         placeholder="Nunca dejes de buscar"
         [(ngModel)]="query"
+        (keydown.enter)="ProductsSearch()"
       />
     </div>
     <div class="product-search">

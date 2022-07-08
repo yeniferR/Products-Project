@@ -11,10 +11,11 @@ $pointer: pointer
 p
   margin: $margin-container
 
-ul li .search
+ul li .search-products
   display: $displai
   align-items: $align-items
   justify-content: space-between
+  // gap: 1rem //kun
 
 .Products
   background-color: $color-container
@@ -31,24 +32,33 @@ li
 
 .product-list
   display: $displai
+  // flex: 10 //kun
   align-items: flex-start
 
 .list-ul
-  width: 60%
+  // width: 60% //andres
+  // min-width: 600px //kun
   padding: 20px
 
 li .state-name
   font-size: 12px
 
-li .price
+li .price-list-prodruct
   padding-bottom: 32px
   font-size: 24px
   cursor: $pointer
 
-li .title
+li .product-title
   font-size: 18px
   cursor: $pointer
 
-li .img
+li .imroduct-imgg
   margin: 16px
   cursor: $pointer
+
+.products-price
+  display: inline
+  padding-right: 5px
+
+.address-state
+  // flex: 3 //kun
