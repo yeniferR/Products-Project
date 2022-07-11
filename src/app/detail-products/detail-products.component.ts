@@ -36,11 +36,15 @@ export class DetailProductsComponent implements OnInit {
         this.products = json),
         (err) => console.log(),
         ()=>{
-        if (this.products) {
+        if (!!this.products) {
           console.log(this.products);
+          // for (let index = 0; index < this.products.length; index++) {
+          //   this.products[index].price =
+
+          // }
           this.imgProduct = this.products.pictures[0].url;
           this.title = this.products.title;
-          this.price = this.products.price;
+          this.price = new Intl.NumberFormat('es-Latn-US').format(this.products.price);
           //  console.log(this.imgProduct);
 
 

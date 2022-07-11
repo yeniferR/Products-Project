@@ -4,6 +4,9 @@ $border: 4px 4px 0 0
 $displai: flex
 $align-items: center
 $pointer: pointer
+$phone-width: 640px
+$tablet-width: 768px
+$desktop-width: 1024px
 
 .products-container
   margin: $margin-container
@@ -15,15 +18,16 @@ ul li .search-products
   display: $displai
   align-items: $align-items
   justify-content: space-between
-  // gap: 1rem //kun
+  gap: 1rem //kun
+  @media (max-width: $phone-width)
+    flex-direction: column
+    align-items: center
 
 .Products
   background-color: $color-container
   border-radius: $border
   padding: 20px
-  margin-top: 1px
-li
-  list-style: none
+  border-bottom: thin solid #eee
 
 .container
   display: $displai
@@ -32,16 +36,22 @@ li
 
 .product-list
   display: $displai
-  // flex: 10 //kun
-  align-items: flex-start
+  flex: 10 //kun
+  align-items: center
+  @media (max-width: $phone-width)
+    flex-direction: column
 
 .list-ul
-  // width: 60% //andres
+  width: 60% //andres
   // min-width: 600px //kun
   padding: 20px
+  @media (max-width: $phone-width)
+    width: 100%
+    padding: 0
 
 li .state-name
   font-size: 12px
+  text-align: end
 
 li .price-list-prodruct
   padding-bottom: 32px
@@ -52,13 +62,27 @@ li .product-title
   font-size: 18px
   cursor: $pointer
 
-li .imroduct-imgg
+li .product-img
   margin: 16px
+  align-self: center
+  justify-self: center
   cursor: $pointer
+  img
+    width: 180px
+    height: 180px
+  @media (max-width: $phone-width)
+    align-self: center
 
 .products-price
   display: inline
   padding-right: 5px
 
 .address-state
-  // flex: 3 //kun
+  //flex: 3 //kun
+  align-self: center
+  justify-self: flex-end
+  @media (max-width: $phone-width)
+    align-self: center
+
+.breadcrumb
+  display: inline

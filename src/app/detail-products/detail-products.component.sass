@@ -1,22 +1,75 @@
+$phone-width: 640px
+
 section
+  width: 100%
   display: flex
   justify-content: center
   align-items: center
-  // background-color: #EEEEEE
 
 .detail-product
   // width: 100%
   display: flex
   flex-direction: column
-  background-color: white
+  // background-color: white
   justify-content: center
   padding: 6px
   margin-top: 16px
+  ul
+    width: 75%
+    align-self: center
+    @media (max-width: $phone-width)
+      width: 100%
+  @media (max-width: $phone-width)
+    padding: 0
 
   .img-product
     display: flex
     justify-content: space-evenly
+    div
+      align-self: flex-start
+      .product-name
+        margin: 0
+        padding: 2rem 0
+        font-size: 1.5rem
+      .product-price
+        margin: 0
+        padding-bottom: 2rem
+        font-size: 2.88rem
+      button
+        background-color: #3483FA
+        width: 200px
+        border: 1px solid transparent
+        border-radius: 4px
+        height: 35px
+        color: white
+      @media (max-width: $phone-width)
+        .product-name, .product-price
+          padding-left: 1rem
+        button
+          margin-left: 1rem
+    @media (max-width: $phone-width)
+      flex-direction: column
+      img
+        width: 100%
+
+.container-detail-product
+  width: 75%
+  align-self: center
+  background-color: white
+  @media (max-width: $phone-width)
+    width: 100%
+    align-self: flex-start
 
 .description-product
   width: 60%
-  padding: 0 0 32px 32px
+  padding: 0 0 2rem 2rem
+  @media (max-width: $phone-width)
+    width: 100%
+    padding: 0
+  h2
+    padding-left: 1rem
+  p
+    padding-left: 1rem
+    padding-right: 1rem
+ul
+  padding: 0

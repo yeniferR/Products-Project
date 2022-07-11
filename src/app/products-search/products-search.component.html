@@ -1,7 +1,9 @@
 <section class="products-container">
   <div class="container">
     <ul class="list-ul">
-      <li>Celulares y Smartphones</li>
+      <li class="breadcrumb" *ngFor="let productsFilter of filter">
+        {{ productsFilter.name }}
+      </li>
 
       <li class="Products" *ngFor="let products of ProductsList | slice: 0:4">
         <div class="search-products">
@@ -23,12 +25,12 @@
                 <img src=".././../assets/ic_shipping.png" alt="" />
               </div>
               <div class="product-title">
-                <p>{{ products.title }}</p>
+                <p (click)="DetailProducts(products)">{{ products.title }}</p>
               </div>
             </div>
           </div>
           <div class="address-state">
-            <p class="state-name" (click)="DetailProducts(products)">
+            <p class="state-name">
               {{ products.address.state_name }}
             </p>
           </div>
