@@ -1,10 +1,14 @@
 <section class="products-container">
   <div class="container">
-    <ul class="list-ul">
-      <li class="breadcrumb" *ngFor="let productsFilter of filter">
-        {{ productsFilter.name }}
-      </li>
-
+    <!-- <div class="ul-div"> -->
+    <div class="breadcrumb-container">
+      <ul class="breadcrumb">
+        <li *ngFor="let productsFilter of filter">
+          <a href="http://">{{ productsFilter.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <ul class="ul-list">
       <li class="Products" *ngFor="let products of ProductsList | slice: 0:4">
         <div class="search-products">
           <div class="product-list">
@@ -12,7 +16,7 @@
               <img
                 class="product-list__table-item-image"
                 src="{{ products.thumbnail }}"
-                alt="Country flag"
+                alt="Product img"
                 (click)="DetailProducts(products)"
               />
             </div>
@@ -29,7 +33,7 @@
               </div>
             </div>
           </div>
-          <div class="address-state">
+          <div *ngIf="!!products.address" class="address-state">
             <p class="state-name">
               {{ products.address.state_name }}
             </p>
@@ -37,5 +41,6 @@
         </div>
       </li>
     </ul>
+    <!-- </div> -->
   </div>
 </section>

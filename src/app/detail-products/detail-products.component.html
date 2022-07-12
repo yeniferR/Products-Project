@@ -6,18 +6,21 @@
     <div class="container-detail-product">
       <div class="img-product">
         <img src="{{ imgProduct }}" alt="" />
-        <div>
-          <p class="product-name">{{ title }}</p>
+        <div class="product-name-price">
+          <p *ngIf="!!soldQuantity" class="product-sold-quantity">
+            Nuevo - {{ soldQuantity }} vendidos
+          </p>
+          <h1 class="product-name">{{ title }}</h1>
           <p class="product-price">$ {{ price }}</p>
           <button>Comprar</button>
         </div>
       </div>
-      <div class="description-product">
+      <div class="product-description">
         <h2>Descripción del producto</h2>
         <p>
-          hola la descriaisisud oiasdhlaskjdh oiyhasdoiasdhaopsd
-          olashdalkjsdhaoid olaskhidoaiksdujpaisd lalkjskhdlkasdh liuashjdoiahds
-          oiausdokahd kishdaiksdh
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam,
+          blanditiis et. Quibusdam iusto esse nemo vitae omnis reiciendis saepe
+          et ullam! Ut suscipit fuga eaque, ad velit optio! Animi, similique!
         </p>
       </div>
     </div>

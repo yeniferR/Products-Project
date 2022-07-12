@@ -25,11 +25,16 @@ section
   .img-product
     display: flex
     justify-content: space-evenly
-    div
+    .product-name-price
       align-self: flex-start
+      width: 30%
+      .product-sold-quantity
+        font-size: 14px
+        padding-top: 2rem
+        margin-bottom: 1rem
       .product-name
         margin: 0
-        padding: 2rem 0
+        padding-bottom: 2rem
         font-size: 1.5rem
       .product-price
         margin: 0
@@ -42,14 +47,19 @@ section
         border-radius: 4px
         height: 35px
         color: white
+        cursor: pointer
       @media (max-width: $phone-width)
-        .product-name, .product-price
+        .product-name-price
+          width: 100%
+        .product-sold-quantity, .product-name, .product-price
           padding-left: 1rem
         button
           margin-left: 1rem
     @media (max-width: $phone-width)
       flex-direction: column
       img
+        width: 100%
+      .product-name-price
         width: 100%
 
 .container-detail-product
@@ -60,7 +70,7 @@ section
     width: 100%
     align-self: flex-start
 
-.description-product
+.product-description
   width: 60%
   padding: 0 0 2rem 2rem
   @media (max-width: $phone-width)
@@ -69,7 +79,6 @@ section
   h2
     padding-left: 1rem
   p
-    padding-left: 1rem
-    padding-right: 1rem
+    padding: 1rem 0 1rem 1rem
 ul
   padding: 0

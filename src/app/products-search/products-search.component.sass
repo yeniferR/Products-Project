@@ -41,7 +41,7 @@ ul li .search-products
   @media (max-width: $phone-width)
     flex-direction: column
 
-.list-ul
+.ul-list
   width: 60% //andres
   // min-width: 600px //kun
   padding: 20px
@@ -84,5 +84,17 @@ li .product-img
   @media (max-width: $phone-width)
     align-self: center
 
-.breadcrumb
+// .breadcrumb-container
+//   display: flex
+//   align-items: center
+//   flex-direction: column
+
+.breadcrumb li
   display: inline
+ul.breadcrumb li+li:before
+  padding: 8px
+  color: #999999
+  content: ">\00a0"
+ul.breadcrumb li a
+  color: #999999
+  text-decoration: none

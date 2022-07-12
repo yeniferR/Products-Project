@@ -15,11 +15,13 @@ export class DetailProductsComponent implements OnInit {
   imgProduct:any;
   price:any;
   title:any;
+  soldQuantity:any;
 
 
   constructor(private readonly router:Router,private  routerActivatedRoute:ActivatedRoute, public DetailProduct:DetailProductsService) { }
 
   ngOnInit() {
+    // localStorage.removeItem('search');
     this.subscription = this.routerActivatedRoute.params
     .subscribe(
      (id) =>{
@@ -37,16 +39,12 @@ export class DetailProductsComponent implements OnInit {
         (err) => console.log(),
         ()=>{
         if (!!this.products) {
+          this.products = { author: {name: "Yenifer", lastname: "Rivas Moreno"}, ...this.products }
           console.log(this.products);
-          // for (let index = 0; index < this.products.length; index++) {
-          //   this.products[index].price =
-
-          // }
           this.imgProduct = this.products.pictures[0].url;
           this.title = this.products.title;
           this.price = new Intl.NumberFormat('es-Latn-US').format(this.products.price);
-          //  console.log(this.imgProduct);
-
+          this.soldQuantity = this.products.sold_quantity;
 
         }
         }
