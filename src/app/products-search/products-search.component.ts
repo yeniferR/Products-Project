@@ -16,7 +16,7 @@ export class ProductsSearchComponent implements OnInit {
   code:any;
   filter:any;
   filterList:any;
-  filterName:any;
+  filterLength:any;
   address:any;
   stateName:any;
 
@@ -46,9 +46,11 @@ export class ProductsSearchComponent implements OnInit {
           }
           this.filterList = this.resultProducts.filters;
           console.log( this.filterList);
-          if (this.filterList.length > 0) {
-            console.log(this.filterList[0].values[0].path_from_root);
+          console.log( this.filterList.length);
+          this.filterLength = this.filterList.length;
+          if (this.filterLength > 0) {
             this.filter = this.filterList[0].values[0].path_from_root;
+            console.log(this.filter);
           }
 
         }
@@ -61,9 +63,9 @@ export class ProductsSearchComponent implements OnInit {
   {
     if (!!event) {
       let id  = event.id;
-      let description = event.title
+      let title = event.title
       // console.log(event);
-      this.router.navigate(['items',id,description]);
+      this.router.navigate(['items/',id,title]);
 
     }
   }

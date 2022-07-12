@@ -12,6 +12,8 @@ export class DetailProductsComponent implements OnInit {
   subscription: Subscription;
   id:any;
   products: any;
+  description:any
+  descriptionProduct:any;
   imgProduct:any;
   price:any;
   title:any;
@@ -29,6 +31,7 @@ export class DetailProductsComponent implements OnInit {
        this.id =id['id'];
       console.log(this.id);
       this.detailProducts(this.id);
+      this.getDescription(this.id);
      });
   }
 
@@ -45,11 +48,27 @@ export class DetailProductsComponent implements OnInit {
           this.title = this.products.title;
           this.price = new Intl.NumberFormat('es-Latn-US').format(this.products.price);
           this.soldQuantity = this.products.sold_quantity;
-
+          console.log(this.soldQuantity);
         }
         }
     )
 
   }
+  getDescription(idDescription:string){
+    this.DetailProduct.GetDescriptionProduct(idDescription).subscribe(
+      (data) =>(
+        this.description = data),
+        (err) => console.log(),
+        ()=>{
+        if (!!this.description) {
+          this.description = { author: {name: "Yenifer", lastname: "Rivas Moreno"}, ...this.description }
+          console.log(this.description);
+          this.descriptionProduct = this.description.plain_text;
+        }
+        }
+    )
+  }
+
+
 
 }

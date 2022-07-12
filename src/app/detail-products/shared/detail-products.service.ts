@@ -16,6 +16,10 @@ export class DetailProductsService {
   getDetailProducts(id:string):Observable<any>
   {
     return this.http.get(`${this.URLProductsID}${id}`);
+  }
+  GetDescriptionProduct(id:string):Observable<any>{
+
+    return this.http.get(`${this.URLProductsID}${id}/description`);
 
   }
 

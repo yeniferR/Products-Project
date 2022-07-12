@@ -40,14 +40,21 @@ ul li .search-products
   align-items: center
   @media (max-width: $phone-width)
     flex-direction: column
-
-.ul-list
-  width: 60% //andres
-  // min-width: 600px //kun
-  padding: 20px
+// .ul-list
+.product-breadcrumb-list
+  width: 60%
   @media (max-width: $phone-width)
     width: 100%
     padding: 0
+
+.product-ul-list
+  // width: 60% //andres
+  // min-width: 600px //kun
+  // padding: 20px
+  @media (max-width: $phone-width)
+    width: 100%
+    padding: 0
+    margin: 0
 
 li .state-name
   font-size: 12px
@@ -84,13 +91,14 @@ li .product-img
   @media (max-width: $phone-width)
     align-self: center
 
-// .breadcrumb-container
-//   display: flex
-//   align-items: center
-//   flex-direction: column
+.breadcrumb
+  @media (max-width: $phone-width)
+    padding: 0
+    display: inline-flex
 
 .breadcrumb li
   display: inline
+
 ul.breadcrumb li+li:before
   padding: 8px
   color: #999999
