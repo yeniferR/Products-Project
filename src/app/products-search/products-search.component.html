@@ -28,7 +28,11 @@
                   class="price-list-prodruct"
                 >
                   <p class="products-price">$ {{ products.price }}</p>
-                  <img src=".././../assets/ic_shipping.png" alt="" />
+                  <img
+                    *ngIf="products.shipping.free_shipping == true"
+                    src=".././../assets/ic_shipping.png"
+                    alt=""
+                  />
                 </div>
                 <div class="product-title">
                   <p (click)="DetailProducts(products)">{{ products.title }}</p>
