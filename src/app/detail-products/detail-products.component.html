@@ -7,8 +7,11 @@
       <div class="img-product">
         <img src="{{ imgProduct }}" alt="" />
         <div class="product-name-price">
-          <p class="product-sold-quantity">
-            Nuevo - {{ soldQuantity }} vendidos
+          <p *ngIf="soldQuantity > 0" class="product-sold-quantity">
+            {{ state }} - {{ soldQuantity }} {{ soldState }}
+          </p>
+          <p *ngIf="soldQuantity == 0" class="product-sold-quantity">
+            {{ state }}
           </p>
           <h1 class="product-name">{{ title }}</h1>
           <p class="product-price">$ {{ price }}</p>

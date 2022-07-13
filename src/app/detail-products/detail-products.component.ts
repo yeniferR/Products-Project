@@ -18,6 +18,9 @@ export class DetailProductsComponent implements OnInit {
   price:any;
   title:any;
   soldQuantity:any;
+  condition:any;
+  state:any;
+  soldState:any;
 
 
   constructor(private readonly router:Router,private  routerActivatedRoute:ActivatedRoute, public DetailProduct:DetailProductsService) { }
@@ -48,7 +51,25 @@ export class DetailProductsComponent implements OnInit {
           this.title = this.products.title;
           this.price = new Intl.NumberFormat('es-Latn-US').format(this.products.price);
           this.soldQuantity = this.products.sold_quantity;
+          if (this.soldQuantity === 1) {
+            this.soldState = "vendido"
+          }
+          if (this.soldQuantity >1) {
+            this.soldState = "vendidos"
+          }
+          this.condition = this.products.condition;
+          if(!!this.condition ){
+            if (this.condition ==="used") {
+               this.state = "Usado";
+            }
+            else
+            {
+              this.state = "Nuevo";
+            }
+
+          }
           console.log(this.soldQuantity);
+
         }
         }
     )
