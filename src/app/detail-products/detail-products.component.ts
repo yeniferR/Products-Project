@@ -29,13 +29,13 @@ export class DetailProductsComponent implements OnInit {
     // localStorage.removeItem('search');
     this.subscription = this.routerActivatedRoute.params
     .subscribe(
-     (id) =>{
+    (id) =>{
 
        this.id =id['id'];
       console.log(this.id);
       this.detailProducts(this.id);
       this.getDescription(this.id);
-     });
+    });
   }
 
   detailProducts(id:string){
@@ -60,7 +60,7 @@ export class DetailProductsComponent implements OnInit {
           this.condition = this.products.condition;
           if(!!this.condition ){
             if (this.condition ==="used") {
-               this.state = "Usado";
+              this.state = "Usado";
             }
             else
             {
@@ -83,8 +83,9 @@ export class DetailProductsComponent implements OnInit {
         ()=>{
         if (!!this.description) {
           this.description = { author: {name: "Yenifer", lastname: "Rivas Moreno"}, ...this.description }
-          console.log(this.description);
-          this.descriptionProduct = this.description.plain_text;
+          this.descriptionProduct = this.description.plain_text.replace(/\n/g, '<br>');
+
+
         }
         }
     )
