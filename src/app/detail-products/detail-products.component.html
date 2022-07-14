@@ -20,9 +20,7 @@
       </div>
       <div class="product-description">
         <h2>Descripción del producto</h2>
-        <p>
-          {{ descriptionProduct }}
-        </p>
+        <p *ngIf="!!descriptionProduct" [innerHTML]="descriptionProduct"></p>
       </div>
     </div>
   </div>

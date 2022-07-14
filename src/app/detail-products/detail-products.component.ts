@@ -60,7 +60,7 @@ export class DetailProductsComponent implements OnInit {
           this.condition = this.products.condition;
           if(!!this.condition ){
             if (this.condition ==="used") {
-               this.state = "Usado";
+                this.state = "Usado";
             }
             else
             {
@@ -84,7 +84,17 @@ export class DetailProductsComponent implements OnInit {
         if (!!this.description) {
           this.description = { author: {name: "Yenifer", lastname: "Rivas Moreno"}, ...this.description }
           console.log(this.description);
-          this.descriptionProduct = this.description.plain_text;
+          this.descriptionProduct = this.description.plain_text.replace(/\n/g, '<br>');
+
+          // // con esto le decimos a javascript que reemplace todos los putos
+          // // por una etiqueta <br />
+          // this.ContDescrip = response.project.descripcion.replace(/\./g, '.<br />');
+          // // con esto otro le decimos que igual reemplace todos los puntos
+          // // por \n que representa un salto de linea
+          // this.ContDescrip = response.project.descripcion.replace(/\./g, '.\n');
+          // // si le decimos que reemplace todos los salto de linea
+          // // por una etiqueta <br />
+          // this.ContDescrip = response.project.descripcion.replace(/\n/g, '<br />');
         }
         }
     )
