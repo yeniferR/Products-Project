@@ -1,7 +1,9 @@
 <section>
   <div class="detail-product">
-    <ul>
-      <li>electrodomestico</li>
+    <ul class="breadcrumb">
+      <li *ngFor="let category of ListCategory">
+        <a href="/items/{{ category.name }}">{{ category.name }}</a>
+      </li>
     </ul>
     <div class="container-detail-product">
       <div class="img-product">

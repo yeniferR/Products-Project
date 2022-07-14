@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ProductsServiceService } from '../products-search/service/products-service.service';
 import { DetailProductsService } from './shared/detail-products.service';
 
 @Component({
@@ -21,24 +22,27 @@ export class DetailProductsComponent implements OnInit {
   condition:any;
   state:any;
   soldState:any;
+  ListCategory:any;
+  breadcrumb=[];
 
 
-  constructor(private readonly router:Router,private  routerActivatedRoute:ActivatedRoute, public DetailProduct:DetailProductsService) { }
+  constructor(private readonly router:Router,private  routerActivatedRoute:ActivatedRoute,
+    public DetailProduct:DetailProductsService, public productService: ProductsServiceService) { }
 
   ngOnInit() {
-    // localStorage.removeItem('search');
     this.subscription = this.routerActivatedRoute.params
     .subscribe(
     (id) =>{
-
-       this.id =id['id'];
-      console.log(this.id);
+      this.id =id['id'];
       this.detailProducts(this.id);
       this.getDescription(this.id);
     });
+
   }
 
+
   detailProducts(id:string){
+
     this.DetailProduct.getDetailProducts(id).subscribe(
       (json) =>(
         this.products = json),
@@ -46,7 +50,6 @@ export class DetailProductsComponent implements OnInit {
         ()=>{
         if (!!this.products) {
           this.products = { author: {name: "Yenifer", lastname: "Rivas Moreno"}, ...this.products }
-          console.log(this.products);
           this.imgProduct = this.products.pictures[0].url;
           this.title = this.products.title;
           this.price = new Intl.NumberFormat('es-Latn-US').format(this.products.price);
@@ -68,7 +71,7 @@ export class DetailProductsComponent implements OnInit {
             }
 
           }
-          console.log(this.soldQuantity);
+          this.ListCategory = JSON.parse(localStorage.getItem('filter'));
 
         }
         }

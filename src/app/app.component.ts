@@ -14,12 +14,10 @@ export class AppComponent implements OnInit {
   constructor(private readonly router:Router) { }
 
   ngOnInit() {
-    // this.query = localStorage.getItem('search');
   }
 
   ProductsSearch(){
     if (!!this.query) {
-      // localStorage.setItem('search',this.query);
       this.router.navigate(['items/',this.query]);
 
     }
