@@ -38,22 +38,26 @@ export class ProductsSearchComponent implements OnInit {
       (err) => console.log(),
       () => {
         if(!!this.resultProducts){
+          console.log(this.resultProducts);
           this.resultProducts = { author: {name: "Yenifer", lastname: "Rivas Moreno"}, ...this.resultProducts }
           this.ProductsList = this.resultProducts.results;
-          for (let index = 0; index < this.ProductsList.length; index++) {
-            this.ProductsList[index].price = new Intl.NumberFormat('es-Latn-US').format(this.ProductsList[index].price);
-          }
-          this.filterList = this.resultProducts.filters;
-          this.filterLength = this.filterList.length;
-          if (this.filterLength > 0) {
-            this.filter = this.filterList[0].values[0].path_from_root;
-            localStorage.setItem("filter", JSON.stringify(this.filter));
-          }
-          else
-          {
-            localStorage.setItem("filter", JSON.stringify(this.filterList));
+          if (this.ProductsList.length > 0) {
+            for (let index = 0; index < this.ProductsList.length; index++) {
+              this.ProductsList[index].price = new Intl.NumberFormat('es-Latn-US').format(this.ProductsList[index].price);
+            }
+            this.filterList = this.resultProducts.filters;
+            this.filterLength = this.filterList.length;
+            if (this.filterLength > 0) {
+              this.filter = this.filterList[0].values[0].path_from_root;
+              localStorage.setItem("filter", JSON.stringify(this.filter));
+            }
+            else
+            {
+              localStorage.setItem("filter", JSON.stringify(this.filterList));
 
+            }
           }
+
 
         }
       }

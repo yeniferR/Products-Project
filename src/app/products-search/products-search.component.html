@@ -48,5 +48,8 @@
         </li>
       </ul>
     </div>
+    <div *ngIf="this.ProductsList.length == 0">
+      <p>No hemos encontrado información de tu busqueda</p>
+    </div>
   </div>
 </section>
